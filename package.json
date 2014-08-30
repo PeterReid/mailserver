@@ -1,0 +1,8 @@
+{
+  "name": "smtp-test",
+  "version": "0.0.1",
+  "dependencies": {
+    "smtp-protocol": "~2.3.1",
+    "sqlite3": "~2.2.7"
+  }
+}
