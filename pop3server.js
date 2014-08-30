@@ -1,4 +1,5 @@
 var net = require('net');
+var tls = require('tls');
 var ClientParser = require('./node_modules/smtp-protocol/lib/client/parser');
 var fs = require('fs');
 
@@ -37,8 +38,8 @@ function getCredentialsFrom(buf) {
   return { username: username, password: password };
 }
 
-function createServer(db /*: MailDb*/) {
-  return net.createServer(function(c) {
+function createServer(opts, db /*: MailDb*/) {
+  return tls.createServer(opts, function(c) {
     console.log('got connection')
     var p = new ClientParser(c);
     
